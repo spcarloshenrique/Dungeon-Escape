@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - Decoracao
+  - Porta
   - Ground
   - Background
   - 
@@ -44,11 +44,11 @@ TagManager:
   - name: Background
     uniqueID: 3631840327
     locked: 0
-  - name: Decoracao
-    uniqueID: 1575858631
-    locked: 0
   - name: Foreground
     uniqueID: 4283719035
+    locked: 0
+  - name: Porta
+    uniqueID: 1575858631
     locked: 0
   - name: Player
     uniqueID: 708978913

@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     //internas
     [SerializeField]
-    float playerSpeed = 10;
+    float playerSpeed;
 
     // Start is called before the first frame update
     void Start()
