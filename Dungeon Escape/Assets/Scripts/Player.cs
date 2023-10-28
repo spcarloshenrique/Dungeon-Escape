@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     Rigidbody2D _playerRb;
     CapsuleCollider2D _playerCollider;
     Vector2 mov;
+    public bool KeyOn;
 
     //internas
     [SerializeField]
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
         _playerRb = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
         _playerCollider = GetComponent<CapsuleCollider2D>();
+        KeyOn = false;
     }
 
     // Update is called once per frame

@@ -15,7 +15,22 @@ public class Porta : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
+            if (gameObject.CompareTag("PortaFechada"))
+            {
+                if(player.GetComponent<Player>().KeyOn == true)
+                {
+                    if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
+                    {
+                        player.transform.position = destination.transform.position;
+                        GetComponent<CapsuleCollider2D>().enabled = false;
+                    }
+                }
+                else
+                {
+                    print("Você não possui chave");
+                }
+            }
+            else if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
             {
                 player.transform.position = destination.transform.position;
             }

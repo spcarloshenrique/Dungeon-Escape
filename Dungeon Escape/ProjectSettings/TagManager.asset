@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PortaFechada
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Porta
     uniqueID: 1575858631
+    locked: 0
+  - name: Chave
+    uniqueID: 2128848979
     locked: 0
   - name: Player
     uniqueID: 708978913
