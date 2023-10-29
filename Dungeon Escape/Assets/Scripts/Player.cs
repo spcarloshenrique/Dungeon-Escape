@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     float playerSpeed;
 
+    public List<int> idChaves = new();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,5 +56,10 @@ public class Player : MonoBehaviour
     void OnMove(InputValue inputValue)
     {
         mov = inputValue.Get<Vector2>();
+    }
+
+    public void Inventario(int idchave)
+    {
+        idChaves.Add(idchave);
     }
 }

@@ -6,6 +6,8 @@ public class Porta : MonoBehaviour
 {
     public Transform destination;
     GameObject player;
+    [SerializeField]
+    int portaId;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -17,7 +19,7 @@ public class Porta : MonoBehaviour
         {
             if (gameObject.CompareTag("PortaFechada"))
             {
-                if(player.GetComponent<Player>().KeyOn == true)
+                if(player.GetComponent<Player>().KeyOn == true && player.GetComponent<Player>().idChaves.Contains(portaId))
                 {
                     if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
                     {
@@ -27,7 +29,7 @@ public class Porta : MonoBehaviour
                 }
                 else
                 {
-                    print("Você não possui chave");
+                    Debug.Log("Você não possui chave");
                 }
             }
             else if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
