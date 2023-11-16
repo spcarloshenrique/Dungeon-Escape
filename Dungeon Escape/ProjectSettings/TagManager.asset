@@ -16,7 +16,7 @@ TagManager:
   - Porta
   - Ground
   - Background
-  - 
+  - Inimigo
   - 
   - 
   - 
@@ -56,4 +56,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 708978913
+    locked: 0
+  - name: Inimigo
+    uniqueID: 2378969623
     locked: 0

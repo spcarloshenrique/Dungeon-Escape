@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 {
     Animator _playerAnimator;
     Rigidbody2D _playerRb;
-    CapsuleCollider2D _playerCollider;
     Vector2 mov;
     public bool KeyOn;
 
@@ -22,7 +21,6 @@ public class Player : MonoBehaviour
     {
         _playerRb = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
-        _playerCollider = GetComponent<CapsuleCollider2D>();
         KeyOn = false;
     }
 
@@ -61,5 +59,10 @@ public class Player : MonoBehaviour
     public void Inventario(int idchave)
     {
         idChaves.Add(idchave);
+    }
+    
+    public void PlayerDead()
+    {
+        Debug.Log("Voce Morreu :(");
     }
 }

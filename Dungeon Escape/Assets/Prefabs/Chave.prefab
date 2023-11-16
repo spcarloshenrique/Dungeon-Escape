@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3844831319751516195}
   - component: {fileID: 1948255422575952040}
   - component: {fileID: 7188187490657858259}
-  - component: {fileID: 8102177672707432972}
   - component: {fileID: 7489120542424122032}
+  - component: {fileID: 5191001856038305378}
   m_Layer: 0
   m_Name: Chave
   m_TagString: Untagged
@@ -108,19 +108,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8102177672707432972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881763829156915879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 449355a4460ad71448908ee239afb2ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaveId: 1
 --- !u!61 &7489120542424122032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,7 +140,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009773254, y: 0.16288531}
+  m_Offset: {x: 0, y: 0.14486396}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -164,5 +151,18 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6795368, y: 0.13755107}
+  m_Size: {x: 0.875, y: 0.23740506}
   m_EdgeRadius: 0
+--- !u!114 &5191001856038305378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881763829156915879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449355a4460ad71448908ee239afb2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaveId: 0
