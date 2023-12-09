@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5369728970338033572}
   - component: {fileID: 5368607293511879834}
   - component: {fileID: 5683472781328405601}
-  - component: {fileID: 2274940345685116228}
+  - component: {fileID: 154281851091886790}
   m_Layer: 7
   m_Name: Escada
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0666667, y: 1.0666667}
   m_EdgeRadius: 0
---- !u!114 &2274940345685116228
+--- !u!114 &154281851091886790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7582180046019855820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4cc2180b389b3948ad610d823c9d2b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 159796f649a8c5e47939de7b300812f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 0}

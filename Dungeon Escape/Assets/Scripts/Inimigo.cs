@@ -6,7 +6,7 @@ public class Inimigo : MonoBehaviour
 {
     private Transform posicaoJogador;
     [SerializeField] private Transform[] pontos;
-    [SerializeField] private float veloc_inimigo;
+    [SerializeField] public float veloc_inimigo;
     private int pontoAtual;
 
     
@@ -48,6 +48,14 @@ public class Inimigo : MonoBehaviour
             {
                 pontoAtual = 0;
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player is Dead");
         }
     }
 }

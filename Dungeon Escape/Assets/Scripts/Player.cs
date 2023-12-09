@@ -8,20 +8,20 @@ public class Player : MonoBehaviour
     Animator _playerAnimator;
     Rigidbody2D _playerRb;
     Vector2 mov;
-    public bool KeyOn;
 
     //internas
     [SerializeField]
-    float playerSpeed;
+    public float playerSpeed;
 
     public List<int> idChaves = new();
+
+    float OuroFinal;
 
     // Start is called before the first frame update
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
-        KeyOn = false;
     }
 
     // Update is called once per frame
@@ -56,11 +56,12 @@ public class Player : MonoBehaviour
         mov = inputValue.Get<Vector2>();
     }
 
-    public void Inventario(int idchave)
+    public void Inventario(int idchave, float ouro)
     {
         idChaves.Add(idchave);
+        OuroFinal += ouro;
     }
-    
+
     public void PlayerDead()
     {
         Debug.Log("Voce Morreu :(");

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94eeeef04d8868f48acf37cfe0aa63a1, type: 3}
+  m_Name: TextData
+  m_EditorClassIdentifier: 
+  talkScript:
+  - text: "Parece que esse ba\xFA est\xE1 vazio!"
+  - text: "Opa, tem moedas de ouro nesse ba\xFA!"
+  - text: "Encontrei uma chave com um numero escrito. Vou guarda-l\xE1 pois acho
+      que ela pode ser importante!"
+  - text: "Est\xE1 porta est\xE1 trancada! Parece que preciso da Chave com o n\xFAmero
+      1. \nTalvez eu a encontre se procurar no come\xE7o!"
+  - text: "Est\xE1 porta est\xE1 trancada! Parece que preciso da chave com o n\xFAmero
+      2.\nO bilhete perto da porta me diz para procurar na torre leste!"
+  - text: "Est\xE1 porta est\xE1 trancada! Parece que preciso da chave com o n\xFAmero
+      3.\nAcho que n\xE3o procurei direito na sala anterior!"
+  - text: "Est\xE1 porta est\xE1 trancada! Parece que preciso da chave com o n\xFAmero
+      4.\nMas onde ser\xE1 que ela est\xE1? Melhor continuar procurando!"

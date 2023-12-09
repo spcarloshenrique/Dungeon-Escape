@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PortaFechada
+  - PortaFinal
+  - TextAnimation
+  - Inimigo
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Ground
   - Background
   - Inimigo
-  - 
+  - Objetos
   - 
   - 
   - 
@@ -51,7 +53,7 @@ TagManager:
   - name: Porta
     uniqueID: 1575858631
     locked: 0
-  - name: Chave
+  - name: Bau
     uniqueID: 2128848979
     locked: 0
   - name: Player

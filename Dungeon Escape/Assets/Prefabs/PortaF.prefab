@@ -145,6 +145,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
+  portaId: 0
+  portaFechada: 0
+  SpritePorta: {fileID: 1242287202472185288}
+  portaAberta: {fileID: -1830492671, guid: 66210a756e89b0d4cab82c69162530bc, type: 3}
 --- !u!70 &6300322040443996122
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
