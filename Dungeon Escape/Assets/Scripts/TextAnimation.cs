@@ -58,7 +58,6 @@ public class TextAnimation : MonoBehaviour
 
     public void AbreMochila(int qntMoedas, string chaves)
     {
-        player.GetComponent<PlayerInput>().DeactivateInput();
         painelMochila.SetActive(true);
         textChave.text = chaves;
         textMoeda.text = qntMoedas.ToString() + " moedas de ouro";
@@ -67,7 +66,6 @@ public class TextAnimation : MonoBehaviour
     public void FechaMochila()
     {
         painelMochila.SetActive(false);
-        player.GetComponent<PlayerInput>().ActivateInput();
     }
 
 }
