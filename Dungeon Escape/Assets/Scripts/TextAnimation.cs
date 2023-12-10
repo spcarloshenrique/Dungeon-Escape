@@ -7,12 +7,15 @@ using UnityEngine.InputSystem;
 public class TextAnimation : MonoBehaviour
 {
     GameObject player;
-    GameObject inimigo;
     public TextMeshProUGUI textObject;
     public List<string> falas = new();
     public string fullText;
-    public GameObject painel;
+    public GameObject painelFala;
     public TextData textData;
+
+    public TextMeshProUGUI textChave;
+    public TextMeshProUGUI textMoeda;
+    public GameObject painelMochila;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,7 @@ public class TextAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //player = GameObject.FindGameObjectWithTag("Player");
-        //inimigo = GameObject.FindGameObjectWithTag("Inimigo");
+        player = GameObject.FindGameObjectWithTag("Player");        
     }
 
     public void MostraFala(int idFala)
@@ -40,19 +42,32 @@ public class TextAnimation : MonoBehaviour
 
     IEnumerator TypeText()
     {
-        painel.SetActive(true);
+        painelFala.SetActive(true);
         textObject.text = fullText;
         textObject.maxVisibleCharacters = 0;
-        //player.GetComponent<Player>().playerSpeed = 0;
-        //inimigo.GetComponent<Inimigo>().veloc_inimigo = 0;
+        player.GetComponent<PlayerInput>().DeactivateInput();
         for(int i = 0; i <= textObject.text.Length; i++)
         {
             textObject.maxVisibleCharacters = i;
             yield return new WaitForSeconds(0.05f);
         }
         yield return new WaitForSeconds(0.2f);
-        //player.GetComponent<Player>().playerSpeed = 7;
-        //inimigo.GetComponent<Inimigo>().veloc_inimigo = 3;
-        painel.SetActive (false);
+        player.GetComponent<PlayerInput>().ActivateInput();
+        painelFala.SetActive (false);
     }
+
+    public void AbreMochila(int qntMoedas, string chaves)
+    {
+        player.GetComponent<PlayerInput>().DeactivateInput();
+        painelMochila.SetActive(true);
+        textChave.text = chaves;
+        textMoeda.text = qntMoedas.ToString() + " moedas de ouro";
+
+    }
+    public void FechaMochila()
+    {
+        painelMochila.SetActive(false);
+        player.GetComponent<PlayerInput>().ActivateInput();
+    }
+
 }

@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "Mochila",
                     "type": "Button",
                     "id": "290fb1f2-5dcf-428d-9e90-75cd7a809b3c",
                     "expectedControlType": "Button",
@@ -286,11 +286,11 @@
                 {
                     "name": "",
                     "id": "24b2f2a0-ffe3-4e18-b460-14524758a50d",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Interact",
+                    "action": "Mochila",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

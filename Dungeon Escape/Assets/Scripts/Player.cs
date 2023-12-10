@@ -2,32 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class Player : MonoBehaviour
 {
     Animator _playerAnimator;
     Rigidbody2D _playerRb;
     Vector2 mov;
+    GameObject textAnimation;
 
-    //internas
+    
     [SerializeField]
-    public float playerSpeed;
+    float playerSpeed;
+    public int vida;
+    public Image barra_vida;
+    public float porcentagem_vida;
 
     public List<int> idChaves = new();
 
-    float OuroFinal;
+    int OuroFinal;
+
+    bool mochilaAberta;
 
     // Start is called before the first frame update
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
+        textAnimation = GameObject.FindGameObjectWithTag("TextAnimation");
+        OuroFinal = 0;
+        vida = 100;
+        porcentagem_vida = 100;
+        mochilaAberta = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         Movimentacao();
+        porcentagem_vida = vida;
+        barra_vida.fillAmount = porcentagem_vida / 100;
     }
 
 
@@ -56,7 +72,31 @@ public class Player : MonoBehaviour
         mov = inputValue.Get<Vector2>();
     }
 
-    public void Inventario(int idchave, float ouro)
+    void OnMochila(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            if(!mochilaAberta)
+            {
+                string stringChaves = "";
+                for (int i = 0;i < idChaves.Count; i++)
+                {
+                    if (idChaves[i] != 0)
+                        stringChaves += "Chave " + idChaves[i] + "\n\r";
+                }    
+                textAnimation.GetComponent<TextAnimation>().AbreMochila(OuroFinal,stringChaves);
+                mochilaAberta = true;
+            }
+            else
+            {
+                textAnimation.GetComponent<TextAnimation>().FechaMochila();
+                mochilaAberta= false;
+            }
+            
+        }
+    }
+
+    public void Inventario(int idchave, int ouro)
     {
         idChaves.Add(idchave);
         OuroFinal += ouro;
@@ -64,6 +104,15 @@ public class Player : MonoBehaviour
 
     public void PlayerDead()
     {
-        Debug.Log("Voce Morreu :(");
+        if (vida==0)
+        {
+            Debug.Log("Você Morreu!");
+            SceneManager.LoadScene("level1");
+        }
+        else
+        {
+            vida -=20;
+            Debug.Log(porcentagem_vida);
+        }
     }
 }

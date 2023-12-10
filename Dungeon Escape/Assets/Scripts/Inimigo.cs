@@ -5,15 +5,19 @@ using UnityEngine;
 public class Inimigo : MonoBehaviour
 {
     private Transform posicaoJogador;
+    GameObject player;
     [SerializeField] private Transform[] pontos;
-    [SerializeField] public float veloc_inimigo;
+    [SerializeField] private float veloc_inimigo;
     private int pontoAtual;
+    [SerializeField]
+    int vidas;
 
     
     // Start is called before the first frame update
     void Start()
     {
         posicaoJogador = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -55,7 +59,7 @@ public class Inimigo : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player is Dead");
+            player.GetComponent<Player>().PlayerDead();
         }
     }
 }

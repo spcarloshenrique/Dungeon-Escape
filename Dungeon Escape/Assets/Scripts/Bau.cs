@@ -16,7 +16,7 @@ public class Bau : MonoBehaviour
     [SerializeField]
     bool ouroOn;
     [SerializeField]
-    float ouro;
+    int ouro;
     [SerializeField]
     int idFrase;
     // Start is called before the first frame update
@@ -40,18 +40,18 @@ public class Bau : MonoBehaviour
             bauAnimator.SetBool("abriu_bau", true);
             if (chaveOn)
             {
-                player.GetComponent<Player>().Inventario(chaveId, 0);
                 if(!bauAberto) 
                 {
+                    player.GetComponent<Player>().Inventario(chaveId, 0);
                     textAnimation.GetComponent<TextAnimation>().MostraFala(idFrase);
                     bauAberto = true;
                 }
             }
             else if (ouroOn)
             {
-                player.GetComponent<Player>().Inventario(0,ouro);
                 if (!bauAberto)
                 {
+                    player.GetComponent<Player>().Inventario(0, ouro);
                     textAnimation.GetComponent<TextAnimation>().MostraFala(idFrase);
                     bauAberto = true;
                 }

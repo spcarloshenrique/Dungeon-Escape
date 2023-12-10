@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Porta : MonoBehaviour
@@ -11,8 +12,7 @@ public class Porta : MonoBehaviour
     [SerializeField]
     int portaId;
     [SerializeField]
-    bool portaFechada;
-    Animator porta;
+    public bool portaFechada;
     public SpriteRenderer SpritePorta;
     public Sprite portaAberta;
     [SerializeField]
@@ -35,16 +35,15 @@ public class Porta : MonoBehaviour
             {
                 if(player.GetComponent<Player>().idChaves.Contains(portaId) && gameObject.CompareTag("PortaFinal"))
                 {
+                    textAnimation.GetComponent<TextAnimation>().MostraFala(7);
                     SceneManager.LoadScene("Level2");
                 }
                 else if (player.GetComponent<Player>().idChaves.Contains(portaId))
                 {
                     if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
                     {
-                        player.transform.position = destination.transform.position;
-                        GetComponent<CapsuleCollider2D>().enabled = false;
-                        portaFechada = false;
-                        SpritePorta.sprite = portaAberta;
+                        StartCoroutine(AbrindoPorta());
+                        
                     }
                 }
                 else
@@ -57,5 +56,16 @@ public class Porta : MonoBehaviour
                 player.transform.position = destination.transform.position;
             }
         }
+    }
+
+    IEnumerator AbrindoPorta()
+    {
+        textAnimation.GetComponent<TextAnimation>().MostraFala(7);
+        portaFechada = false;
+        yield return new WaitForSeconds(0.2f);
+        SpritePorta.sprite = portaAberta;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(0.8f);
+        player.transform.position = destination.transform.position;
     }
 }
