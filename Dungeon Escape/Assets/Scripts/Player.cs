@@ -15,10 +15,11 @@ public class Player : MonoBehaviour
 
     
     [SerializeField]
-    float playerSpeed;
+    public float playerSpeed;
     public int vida;
     public Image barra_vida;
     public float porcentagem_vida;
+    public SpriteRenderer SpritePlayer;
 
     public List<int> idChaves = new();
 
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
         vida = 100;
         porcentagem_vida = 100;
         mochilaAberta = false;
+        SpritePlayer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -112,7 +114,17 @@ public class Player : MonoBehaviour
         else
         {
             vida -=20;
+            StartCoroutine(SemDano());
             Debug.Log(porcentagem_vida);
         }
+    }
+
+    IEnumerator SemDano()
+    {
+        Physics2D.IgnoreLayerCollision(6, 10);
+        SpritePlayer.color = (Color)(new Color32(255,255, 255, 100));
+        yield return new WaitForSeconds(1.2f);
+        Physics2D.IgnoreLayerCollision(6, 10,false);
+        SpritePlayer.color = (Color)(new Color32(255, 255, 255, 255));
     }
 }

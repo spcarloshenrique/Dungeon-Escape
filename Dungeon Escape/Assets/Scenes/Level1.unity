@@ -990,6 +990,7 @@ MonoBehaviour:
   vida: 0
   barra_vida: {fileID: 828953910}
   porcentagem_vida: 0
+  SpritePlayer: {fileID: 391850526}
   idChaves: 
 --- !u!114 &391850523
 MonoBehaviour:
@@ -1053,8 +1054,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021572113, y: -0.036827087}
-  m_Size: {x: 0.62638855, y: 1.0206184}
+  m_Offset: {x: -0.027647018, y: -0.036827087}
+  m_Size: {x: 0.7114525, y: 1.0206184}
   m_Direction: 0
 --- !u!50 &391850525
 Rigidbody2D:
