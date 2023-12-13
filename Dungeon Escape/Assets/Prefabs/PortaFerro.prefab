@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1661095723487876847}
   - component: {fileID: 2199148092988575144}
   - component: {fileID: 8587372294457279994}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PortaFerro
   m_TagString: PortaFechada
   m_Icon: {fileID: 0}

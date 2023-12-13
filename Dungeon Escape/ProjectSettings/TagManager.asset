@@ -8,6 +8,7 @@ TagManager:
   - TextAnimation
   - Inimigo
   - PortaFechada
+  - Espada
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Inimigo
   - Objetos
   - Vida
-  - 
+  - Espada
   - 
   - 
   - 

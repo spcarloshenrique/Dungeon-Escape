@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public Image barra_vida;
     public float porcentagem_vida;
     public SpriteRenderer SpritePlayer;
+    public float x, y;
+    
 
     public List<int> idChaves = new();
 
@@ -59,6 +61,7 @@ public class Player : MonoBehaviour
             _playerAnimator.SetFloat("Y", mov.y);
 
             _playerAnimator.SetBool("Walking", true);
+            x = mov.x; y = mov.y;
         }
         else
         {
@@ -98,6 +101,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnAttack(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            StartCoroutine(Ataque());
+            
+        }
+    }
+
     public void Inventario(int idchave, int ouro)
     {
         idChaves.Add(idchave);
@@ -113,7 +125,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            vida -=20;
+            vida -= 20;
             StartCoroutine(SemDano());
             Debug.Log(porcentagem_vida);
         }
@@ -133,5 +145,42 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         Physics2D.IgnoreLayerCollision(6, 10,false);
         SpritePlayer.color = (Color)(new Color32(255, 255, 255, 255));
+    }
+
+    IEnumerator Ataque()
+    {
+        if (x == 0 && y == 1)
+        {
+            Debug.Log("Atacou up");
+            _playerAnimator.SetTrigger("Attacking");
+            transform.GetChild(0).gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.6f);
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else if (x == 1 && y == 0)
+        {
+            Debug.Log("Atacou right");
+            _playerAnimator.SetTrigger("Attacking");
+            transform.GetChild(1).gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.6f);
+            transform.GetChild(1).gameObject.SetActive(false);
+
+        }
+        else if (x == 0 && y == -1)
+        {
+            Debug.Log("Atacou down");
+            _playerAnimator.SetTrigger("Attacking");
+            transform.GetChild(2).gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.6f);
+            transform.GetChild(2).gameObject.SetActive(false);
+        }
+        else if (x == -1 && y == 0)
+        {
+            Debug.Log("Atacou left");
+            _playerAnimator.SetTrigger("Attacking");
+            transform.GetChild(3).gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.6f);
+            transform.GetChild(3).gameObject.SetActive(false);
+        }
     }
 }

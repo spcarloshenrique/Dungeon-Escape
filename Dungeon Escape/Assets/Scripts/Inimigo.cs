@@ -9,8 +9,6 @@ public class Inimigo : MonoBehaviour
     [SerializeField] private Transform[] pontos;
     [SerializeField] private float veloc_inimigo;
     private int pontoAtual;
-    [SerializeField]
-    int vidas;
 
     
     // Start is called before the first frame update
@@ -60,6 +58,14 @@ public class Inimigo : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             player.GetComponent<Player>().PlayerDead();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Espada"))
+        {
+            Destroy(gameObject);
         }
     }
 }

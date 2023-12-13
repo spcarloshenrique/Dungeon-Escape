@@ -41,18 +41,14 @@ public class Porta : MonoBehaviour
                 }
                 else if (player.GetComponent<Player>().idChaves.Contains(portaId))
                 {
-                    if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
-                    {
-                        StartCoroutine(AbrindoPorta());
-                        
-                    }
+                    StartCoroutine(AbrindoPorta()); 
                 }
                 else
                 {
                     textAnimation.GetComponent<TextAnimation>().MostraFala(idFrase);
                 }
             }
-            else if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
+            else
             {
                 player.transform.position = destination.transform.position;
             }
