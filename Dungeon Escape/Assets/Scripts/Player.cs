@@ -118,6 +118,13 @@ public class Player : MonoBehaviour
             Debug.Log(porcentagem_vida);
         }
     }
+    public void GanhaVida()
+    {
+        if (vida < 100)
+        {
+            vida += 20;
+        }
+    }
 
     IEnumerator SemDano()
     {

@@ -17,6 +17,8 @@ public class Porta : MonoBehaviour
     public Sprite portaAberta;
     [SerializeField]
     int idFrase;
+    [SerializeField]
+    string level;
 
     
     private void Awake()
@@ -36,7 +38,7 @@ public class Porta : MonoBehaviour
                 if(player.GetComponent<Player>().idChaves.Contains(portaId) && gameObject.CompareTag("PortaFinal"))
                 {
                     textAnimation.GetComponent<TextAnimation>().MostraFala(7);
-                    SceneManager.LoadScene("Level2");
+                    SceneManager.LoadScene(level);
                 }
                 else if (player.GetComponent<Player>().idChaves.Contains(portaId))
                 {
