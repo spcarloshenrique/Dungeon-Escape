@@ -37,7 +37,6 @@ public class Porta : MonoBehaviour
             {
                 if(player.GetComponent<Player>().idChaves.Contains(portaId) && gameObject.CompareTag("PortaFinal"))
                 {
-                    textAnimation.GetComponent<TextAnimation>().MostraFala(7);
                     SceneManager.LoadScene(level);
                 }
                 else if (player.GetComponent<Player>().idChaves.Contains(portaId))
