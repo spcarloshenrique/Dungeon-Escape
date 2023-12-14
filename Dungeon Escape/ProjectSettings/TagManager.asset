@@ -9,6 +9,8 @@ TagManager:
   - Inimigo
   - PortaFechada
   - Espada
+  - Audio
+  - Filho
   layers:
   - Default
   - TransparentFX

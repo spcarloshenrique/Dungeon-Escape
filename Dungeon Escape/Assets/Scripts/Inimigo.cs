@@ -9,6 +9,8 @@ public class Inimigo : MonoBehaviour
     [SerializeField] private Transform[] pontos;
     [SerializeField] private float veloc_inimigo;
     private int pontoAtual;
+    
+    AudioSource audio;
 
     
     // Start is called before the first frame update
@@ -16,6 +18,7 @@ public class Inimigo : MonoBehaviour
     {
         posicaoJogador = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player");
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -66,6 +69,7 @@ public class Inimigo : MonoBehaviour
         if (collision.CompareTag("Espada"))
         {
             Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(audio.clip, transform.position);
         }
     }
 }

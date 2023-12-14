@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,14 @@ public class Player : MonoBehaviour
     Rigidbody2D _playerRb;
     Vector2 mov;
     GameObject textAnimation;
+    GameObject sonsManager;
 
+    AudioSource audio;
+    public AudioClip playerATK;
+    public AudioClip playerMorte;
+    
+
+    [SerializeField] int dano;
     
     [SerializeField]
     public float playerSpeed;
@@ -21,7 +29,6 @@ public class Player : MonoBehaviour
     public float porcentagem_vida;
     public SpriteRenderer SpritePlayer;
     public float x, y;
-    
 
     public List<int> idChaves = new();
 
@@ -29,12 +36,15 @@ public class Player : MonoBehaviour
 
     bool mochilaAberta;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
         textAnimation = GameObject.FindGameObjectWithTag("TextAnimation");
+        audio = GetComponent<AudioSource>();
         OuroFinal = 0;
         vida = 100;
         porcentagem_vida = 100;
@@ -67,8 +77,6 @@ public class Player : MonoBehaviour
         {
             _playerAnimator.SetBool("Walking", false);
         }
-
-
 
     }
 
@@ -105,8 +113,8 @@ public class Player : MonoBehaviour
     {
         if (inputValue.isPressed)
         {
+            audio.PlayOneShot(playerATK, 1.0f);
             StartCoroutine(Ataque());
-            
         }
     }
 
@@ -118,14 +126,16 @@ public class Player : MonoBehaviour
 
     public void PlayerDead()
     {
-        if (vida==0)
+        if (vida<=0)
         {
+            audio.PlayOneShot(playerMorte, 1.0f);
             Debug.Log("Você Morreu!");
-            SceneManager.LoadScene("level1");
+            StartCoroutine(delayMorte());
         }
         else
         {
-            vida -= 20;
+            
+            vida -= dano;
             StartCoroutine(SemDano());
             Debug.Log(porcentagem_vida);
         }
@@ -182,5 +192,11 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.6f);
             transform.GetChild(3).gameObject.SetActive(false);
         }
+    }
+
+    IEnumerator delayMorte()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("level1");
     }
 }
