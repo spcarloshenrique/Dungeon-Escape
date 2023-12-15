@@ -26,3 +26,9 @@ MonoBehaviour:
   - text: "Est\xE1 porta est\xE1 trancada! Parece que preciso da chave com o n\xFAmero
       4.\nMas onde ser\xE1 que ela est\xE1? Melhor continuar procurando!"
   - text: Parece que abriu!
+  - text: "Est\xE1 porta est\xE1 trancada! Parece que preciso da chave com o n\xFAmero
+      1.\nOnde est\xE1 o ba\xFA com ela? Devo procurar mais!"
+  - text: "Est\xE1 porta est\xE1 trancada! Parece que preciso da chave com o n\xFAmero
+      2.\nPreciso acha-l\xE1 se quiser sair daqui!"
+  - text: "Est\xE1 porta est\xE1 trancada! Parece que preciso da chave com o n\xFAmero
+      3. Deve estar em algum desses ba\xFAs!"
