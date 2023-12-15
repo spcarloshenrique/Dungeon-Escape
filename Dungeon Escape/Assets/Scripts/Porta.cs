@@ -20,7 +20,7 @@ public class Porta : MonoBehaviour
     [SerializeField]
     string level;
 
-    AudioSource audio;
+    AudioSource audioPorta;
 
     
     private void Awake()
@@ -28,7 +28,7 @@ public class Porta : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         textAnimation = GameObject.FindGameObjectWithTag("TextAnimation");
         SpritePorta = GetComponent<SpriteRenderer>();
-        audio = GetComponent<AudioSource>();
+        audioPorta = GetComponent<AudioSource>();
 
     }
 
@@ -40,8 +40,8 @@ public class Porta : MonoBehaviour
             {
                 if(player.GetComponent<Player>().idChaves.Contains(portaId) && gameObject.CompareTag("PortaFinal"))
                 {
+                    AudioSource.PlayClipAtPoint(audioPorta.clip, transform.position);
                     SceneManager.LoadScene(level);
-                    AudioSource.PlayClipAtPoint(audio.clip, transform.position);
                 }
                 else if (player.GetComponent<Player>().idChaves.Contains(portaId))
                 {
@@ -64,7 +64,7 @@ public class Porta : MonoBehaviour
         textAnimation.GetComponent<TextAnimation>().MostraFala(7);
         portaFechada = false;
         yield return new WaitForSeconds(0.2f);
-        AudioSource.PlayClipAtPoint(audio.clip, transform.position);
+        AudioSource.PlayClipAtPoint(audioPorta.clip, transform.position);
         SpritePorta.sprite = portaAberta;
         GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.8f);

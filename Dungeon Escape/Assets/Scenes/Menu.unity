@@ -609,7 +609,6 @@ GameObject:
   - component: {fileID: 534771921}
   - component: {fileID: 534771920}
   - component: {fileID: 534771923}
-  - component: {fileID: 534771922}
   - component: {fileID: 534771924}
   m_Layer: 5
   m_Name: NomeJogo
@@ -734,18 +733,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534771917}
   m_CullTransparentMesh: 1
---- !u!114 &534771922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534771917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1438124daa89854392f3cc41e028ab0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &534771923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,7 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d359ba8d9a71c4149844b6737abe24de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSlider: {fileID: 0}
+  audioSlider: {fileID: 1803838101}
 --- !u!1 &1135527443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,8 +2323,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8768476804287911929, guid: b6d7861920bf1ef449e6d880af755861, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

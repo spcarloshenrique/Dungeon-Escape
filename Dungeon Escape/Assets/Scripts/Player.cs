@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     GameObject textAnimation;
     GameObject sonsManager;
 
-    AudioSource audio;
+    AudioSource audioPlayer;
     public AudioClip playerATK;
     public AudioClip playerMorte;
     
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         _playerRb = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
         textAnimation = GameObject.FindGameObjectWithTag("TextAnimation");
-        audio = GetComponent<AudioSource>();
+        audioPlayer = GetComponent<AudioSource>();
         OuroFinal = 0;
         vida = 100;
         porcentagem_vida = 100;
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
     {
         if (inputValue.isPressed)
         {
-            audio.PlayOneShot(playerATK, 1.0f);
+            audioPlayer.PlayOneShot(playerATK, 1.0f);
             StartCoroutine(Ataque());
         }
     }
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
     {
         if (vida<=0)
         {
-            audio.PlayOneShot(playerMorte, 1.0f);
+            audioPlayer.PlayOneShot(playerMorte, 1.0f);
             Debug.Log("Você Morreu!");
             StartCoroutine(delayMorte());
         }
@@ -196,7 +196,7 @@ public class Player : MonoBehaviour
 
     IEnumerator delayMorte()
     {
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("level1");
+        yield return new WaitForSeconds(0.6f);
+        SceneManager.LoadScene("GameOver");
     }
 }

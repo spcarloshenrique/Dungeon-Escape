@@ -20,7 +20,7 @@ public class Bau : MonoBehaviour
     [SerializeField]
     int idFrase;
 
-    AudioSource audio;
+    AudioSource audioBau;
     
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class Bau : MonoBehaviour
         bauAnimator = GetComponent<Animator>();
         textAnimation = GameObject.FindGameObjectWithTag("TextAnimation");
         bauAberto = false;
-        audio = GetComponent<AudioSource>();
+        audioBau = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class Bau : MonoBehaviour
                     player.GetComponent<Player>().Inventario(chaveId, 0);
                     textAnimation.GetComponent<TextAnimation>().MostraFala(idFrase);
                     bauAberto = true;
-                    AudioSource.PlayClipAtPoint(audio.clip, transform.position);
+                    AudioSource.PlayClipAtPoint(audioBau.clip, transform.position);
                 }
             }
             else if (ouroOn)
@@ -60,7 +60,7 @@ public class Bau : MonoBehaviour
                     player.GetComponent<Player>().Inventario(0, ouro);
                     textAnimation.GetComponent<TextAnimation>().MostraFala(idFrase);
                     bauAberto = true;
-                    AudioSource.PlayClipAtPoint(audio.clip, transform.position);
+                    AudioSource.PlayClipAtPoint(audioBau.clip, transform.position);
                 }
             }
             else
@@ -69,7 +69,7 @@ public class Bau : MonoBehaviour
                 {
                     textAnimation.GetComponent<TextAnimation>().MostraFala(idFrase);
                     bauAberto = true;
-                    AudioSource.PlayClipAtPoint(audio.clip, transform.position);
+                    AudioSource.PlayClipAtPoint(audioBau.clip, transform.position);
                 }
             }
         }
