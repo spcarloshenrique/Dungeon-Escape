@@ -20,8 +20,7 @@ public class Menu : MonoBehaviour
     
     public void jogar()
     {
-        
-        SceneManager.LoadScene(nomeDoLevelDeJogo);
+        StartCoroutine(DelayJogar());
     }
 
     public void abrirOpcoes()
@@ -42,5 +41,11 @@ public class Menu : MonoBehaviour
     {
         Debug.Log("Saindo do jogo... só funciona quando o jogo for .exe");
         Application.Quit();
+    }
+
+    IEnumerator DelayJogar()
+    {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene(nomeDoLevelDeJogo);
     }
 }
